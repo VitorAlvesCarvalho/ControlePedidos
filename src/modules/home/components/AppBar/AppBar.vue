@@ -33,6 +33,7 @@ export default class AppBar extends Vue {
   text-align: center;
   padding: 8px;
   color: white;
+  width: 100%;
 
   &__day {
     font-size: 20px;

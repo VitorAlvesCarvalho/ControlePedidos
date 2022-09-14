@@ -14,10 +14,11 @@ export default class App extends Vue {}
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-body {
+* {
   padding: 0;
   margin: 0;
   font-family: 'Roboto';
+  box-sizing: border-box;
 }
 
 p {
