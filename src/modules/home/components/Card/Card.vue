@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div @click="emitClick" class="card">
     <section class="card__hour">
       <p>14:43</p>
     </section>
@@ -13,10 +13,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Emit } from 'vue-property-decorator';
 
 @Component
-export default class Card extends Vue {}
+export default class Card extends Vue {
+  @Emit('emit-click')
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  public emitClick() {}
+}
 </script>
 
 <style lang="scss" scoped>
