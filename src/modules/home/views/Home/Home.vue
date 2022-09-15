@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <AppBar />
+    <AppBar class="animation" />
 
-    <section class="home__content">
+    <section class="home__content animation">
       <Card v-for="item in 9" :key="item" @emit-click="openModal" />
     </section>
 
@@ -72,5 +72,18 @@ export default class Home extends Vue {
   content: '';
   background-color: #000;
   opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation {
+  animation: fadeIn 3s ease-in-out;
 }
 </style>
