@@ -44,7 +44,8 @@ export default class Card extends Vue {
   text-align: center;
   border-radius: 12px;
   width: max-content;
-  color: rgba(0, 0, 0, 0.775);
+  color: #5c5c5c;
+  box-shadow: 5px 5px #5c5c5c;
 
   &__infos {
     padding: 16px 32px 0;
@@ -64,7 +65,7 @@ export default class Card extends Vue {
     display: flex;
     justify-content: space-around;
     padding: 8px;
-    border-top: 1px solid rgba(0, 0, 0, 0.255);
+    border-top: 1px solid #5c5c5c;
   }
 }
 </style>

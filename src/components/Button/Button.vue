@@ -16,7 +16,7 @@ export default class Button extends Vue {
 .button {
   padding: 4px 20px;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.775);
+  background-color: #5c5c5c;
   border: none;
   color: white;
   font-size: 16px;
