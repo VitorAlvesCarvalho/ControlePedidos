@@ -10,7 +10,7 @@
         <div class="products__list" v-for="item in 3" :key="item">
           <p>Cerveja Preta</p>
           <p class="align-center">R$ 10,00</p>
-          <p class="align-right">2</p>
+          <InputQuantity class="align-right" />
         </div>
       </div>
       <div class="products">
@@ -18,7 +18,7 @@
         <div class="products__list">
           <p>Snaduiche</p>
           <p class="align-center">R$ 20,00</p>
-          <p class="align-right">1</p>
+          <InputQuantity class="align-right" />
         </div>
       </div>
     </section>
@@ -36,11 +36,12 @@
 
 <script lang="ts">
 import { Component, Emit, Vue } from 'vue-property-decorator';
-import { Button } from '@/components';
+import { Button, InputQuantity } from '@/components';
 
 @Component({
   components: {
-    Button
+    Button,
+    InputQuantity
   }
 })
 export default class ModalOrdered extends Vue {
@@ -80,6 +81,7 @@ export default class ModalOrdered extends Vue {
   }
 
   &__list {
+    align-items: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 12px 0;
