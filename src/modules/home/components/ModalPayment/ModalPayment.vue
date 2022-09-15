@@ -38,6 +38,7 @@
     <section class="content-modal__input">
       <input
         v-model="value"
+        v-money="formatterOptions"
         class="input"
         placeholder="Valor do pagamento"
         aria-label="teste"
@@ -54,11 +55,13 @@
 <script lang="ts">
 import { Component, Emit, Vue } from 'vue-property-decorator';
 import { Button } from '@/components';
+import { VMoney } from 'v-money';
 
 @Component({
   components: {
     Button
-  }
+  },
+  directives: { money: VMoney }
 })
 export default class ModalPayment extends Vue {
   public value = '';
@@ -66,6 +69,15 @@ export default class ModalPayment extends Vue {
   @Emit('close-modal')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   public emitClose() {}
+
+  public get formatterOptions() {
+    return {
+      decimal: ',',
+      thousands: '.',
+      prefix: 'R$',
+      precision: 2
+    };
+  }
 }
 </script>
 
