@@ -1,13 +1,17 @@
 <template>
   <div @click="emitClick" class="card">
-    <section class="card__hour">
-      <p>14:43</p>
+    <section class="card__infos">
+      <section class="card__identifier">
+        <p>Mesa 1</p>
+      </section>
+      <section class="card__value">
+        <p>R$ 52,40</p>
+      </section>
     </section>
-    <section class="card__value">
-      <p>R$ 52,40</p>
-    </section>
-    <section class="card__identifier">
-      <p>Mesa 1</p>
+
+    <section class="card__actions">
+      <button>Adicionar</button>
+      <button>Pagar</button>
     </section>
   </div>
 </template>
@@ -25,25 +29,30 @@ export default class Card extends Vue {
 
 <style lang="scss" scoped>
 .card {
-  background-color: #a910ff;
+  background-color: #fff;
   text-align: center;
-  padding: 18px;
-  border-radius: 100%;
-  color: white;
+  border-radius: 12px;
   width: max-content;
-  cursor: pointer;
 
-  &__hour &__identifier {
-    font-size: 12px;
+  &__infos {
+    padding: 16px 32px 0;
+  }
+
+  &__identifier {
+    font-size: 20px;
+    font-weight: bold;
   }
 
   &__value {
     margin: 12px 0;
     font-size: 26px;
   }
-}
 
-.card:hover {
-  transform: scale(1.1);
+  &__actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    border-top: 1px solid black;
+  }
 }
 </style>

@@ -3,7 +3,7 @@
     <app-bar />
 
     <section class="home__content">
-      <card v-for="item in 10" :key="item" @emit-click="openModal" />
+      <card v-for="item in 9" :key="item" @emit-click="openModal" />
     </section>
 
     <modal @event-close="closeModal" v-if="isOpenModal" />
@@ -36,18 +36,35 @@ export default class Home extends Vue {
 
 <style lang="scss" scoped>
 .home {
-  background-color: #a710ff86;
+  background-image: url('~@/assets/imgs/background-home.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 
   &__content {
+    position: relative;
     max-width: fit-content;
     padding-top: 60px;
     display: grid;
     grid-gap: 30px;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 32px;
   }
+}
+
+.home:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: #000;
+  opacity: 0.9;
 }
 </style>

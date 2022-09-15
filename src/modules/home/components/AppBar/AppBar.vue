@@ -29,19 +29,19 @@ export default class AppBar extends Vue {
 
 <style scoped lang="scss">
 .header {
-  background-color: #a910ff;
+  position: relative;
   text-align: center;
-  padding: 8px;
+  padding: 32px 0 16px;
   color: white;
   width: 100%;
 
   &__day {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   &__hours {
-    margin-top: 4px;
-    font-size: 12px;
+    margin-top: 8px;
+    font-size: 16px;
   }
 }
 </style>
