@@ -10,8 +10,8 @@
     </section>
 
     <section class="card__actions">
-      <Button @click.native="emitClick" text="Adicionar" />
-      <Button @click.native="emitClick" text="Pagar" />
+      <Button @click.native="emitClick(typeModal.ModalOrdered)" text="Pedido" />
+      <Button @click.native="emitClick(typeModal.ModalPayment)" text="Pagar" />
     </section>
   </div>
 </template>
@@ -19,6 +19,7 @@
 <script lang="ts">
 import { Component, Vue, Emit } from 'vue-property-decorator';
 import { Button } from '@/components';
+import { TypeModal } from '@/modules/home/types';
 
 @Component({
   components: {
@@ -27,8 +28,13 @@ import { Button } from '@/components';
 })
 export default class Card extends Vue {
   @Emit('emit-click')
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public emitClick() {}
+  public emitClick(typeModal: string) {
+    return typeModal;
+  }
+
+  public get typeModal() {
+    return TypeModal;
+  }
 }
 </script>
 

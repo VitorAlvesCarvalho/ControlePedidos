@@ -6,13 +6,18 @@
       <Card v-for="item in 9" :key="item" @emit-click="openModal" />
     </section>
 
-    <Modal @event-close="closeModal" v-if="isOpenModal" />
+    <Modal
+      v-if="isOpenModal"
+      @event-close="closeModal"
+      :typeModal="typeModal"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { AppBar, Card, Modal } from '@/modules/home/components';
+import { TypeModal } from '@/modules/home/types';
 
 @Component({
   components: {
@@ -23,8 +28,10 @@ import { AppBar, Card, Modal } from '@/modules/home/components';
 })
 export default class Home extends Vue {
   public isOpenModal = false;
+  public typeModal: string = TypeModal.ModalPayment;
 
-  public openModal() {
+  public openModal(typeModal: string) {
+    this.typeModal = typeModal;
     this.isOpenModal = true;
   }
 

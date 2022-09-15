@@ -1,18 +1,27 @@
 <template>
   <div class="modal">
-    <div class="modal__container">
+    <section class="modal__container">
       <p @click="emitEventClose">X</p>
 
-      <p>Modal</p>
-    </div>
+      <component :is="typeModal" />
+    </section>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit } from 'vue-property-decorator';
+import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
+import { ModalOrdered, ModalPayment } from '@/modules/home/components';
 
-@Component
+@Component({
+  components: {
+    ModalOrdered,
+    ModalPayment
+  }
+})
 export default class Card extends Vue {
+  @Prop({ type: String, required: true })
+  readonly typeModal!: string;
+
   @Emit('event-close')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   emitEventClose() {}
