@@ -18,7 +18,6 @@ export default class App extends Vue {}
   padding: 0;
   margin: 0;
   font-family: 'Roboto';
-  box-sizing: border-box;
 }
 
 p {

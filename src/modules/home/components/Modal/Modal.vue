@@ -1,9 +1,7 @@
 <template>
   <div class="modal">
     <section class="modal__container">
-      <p @click="emitEventClose">X</p>
-
-      <component :is="typeModal" />
+      <component @close-modal="emitEventClose" :is="typeModal" />
     </section>
   </div>
 </template>
