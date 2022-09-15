@@ -10,16 +10,21 @@
     </section>
 
     <section class="card__actions">
-      <button>Adicionar</button>
-      <button>Pagar</button>
+      <Button text="Adicionar" />
+      <Button text="Pagar" />
     </section>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Emit } from 'vue-property-decorator';
+import { Button } from '@/components';
 
-@Component
+@Component({
+  components: {
+    Button
+  }
+})
 export default class Card extends Vue {
   @Emit('emit-click')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -33,6 +38,7 @@ export default class Card extends Vue {
   text-align: center;
   border-radius: 12px;
   width: max-content;
+  color: rgba(0, 0, 0, 0.775);
 
   &__infos {
     padding: 16px 32px 0;
@@ -52,7 +58,7 @@ export default class Card extends Vue {
     display: flex;
     justify-content: space-around;
     padding: 8px;
-    border-top: 1px solid black;
+    border-top: 1px solid rgba(0, 0, 0, 0.255);
   }
 }
 </style>

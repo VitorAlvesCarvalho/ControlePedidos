@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <app-bar />
+    <AppBar />
 
     <section class="home__content">
-      <card v-for="item in 9" :key="item" @emit-click="openModal" />
+      <Card v-for="item in 9" :key="item" @emit-click="openModal" />
     </section>
 
-    <modal @event-close="closeModal" v-if="isOpenModal" />
+    <Modal @event-close="closeModal" v-if="isOpenModal" />
   </div>
 </template>
 
@@ -49,7 +49,6 @@ export default class Home extends Vue {
   &__content {
     position: relative;
     max-width: fit-content;
-    padding-top: 60px;
     display: grid;
     grid-gap: 30px;
     grid-template-columns: repeat(3, 1fr);

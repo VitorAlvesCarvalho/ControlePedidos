@@ -31,7 +31,7 @@ export default class AppBar extends Vue {
 .header {
   position: relative;
   text-align: center;
-  padding: 32px 0 16px;
+  padding: 32px 0;
   color: white;
   width: 100%;
 
