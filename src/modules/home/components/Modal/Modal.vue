@@ -25,7 +25,6 @@ export default class Card extends Vue {
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: 0.7;
   bottom: 0;
   display: flex;
   justify-content: center;

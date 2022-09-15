@@ -1,5 +1,5 @@
 <template>
-  <div @click="emitClick" class="card">
+  <div class="card">
     <section class="card__infos">
       <section class="card__identifier">
         <p>Mesa 1</p>
@@ -10,8 +10,8 @@
     </section>
 
     <section class="card__actions">
-      <Button text="Adicionar" />
-      <Button text="Pagar" />
+      <Button @click.native="emitClick" text="Adicionar" />
+      <Button @click.native="emitClick" text="Pagar" />
     </section>
   </div>
 </template>
