@@ -3,6 +3,7 @@
     <header class="content-modal__title">
       <p>Novo Pedido - Mesa 1</p>
     </header>
+
     <section>
       <div class="products">
         <p class="products__title">Bebidas</p>
@@ -21,9 +22,11 @@
         </div>
       </div>
     </section>
+
     <section class="content-modal__total">
       <p>Total: R$ 30,00</p>
     </section>
+
     <footer class="content-modal__actions">
       <Button @click.native="emitClose" sizeButton="md" text="Cancelar" />
       <Button sizeButton="md" text="Confirmar" />
