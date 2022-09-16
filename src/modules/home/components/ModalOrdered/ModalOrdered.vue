@@ -14,13 +14,17 @@
         >
           <p>{{ product.name }}</p>
           <p class="align-center">{{ product.value }}</p>
-          <InputQuantity class="align-right" />
+          <InputQuantity
+            @emit-value="updateValue"
+            :product="product"
+            class="align-right"
+          />
         </div>
       </div>
     </section>
 
     <section class="content-modal__total">
-      <p>Total: R$ 30,00</p>
+      <p>Total: {{ totalValue }}</p>
     </section>
 
     <footer class="content-modal__actions">
@@ -47,12 +51,33 @@ export default class ModalOrdered extends Vue {
   @HomeModules.Getter('products')
   readonly productsList!: any;
 
+  public totalValue = 0;
+  private productsAdd: any = [];
+
   @Prop({ type: Object, required: true })
   readonly tableSelect!: any;
 
   @Emit('close-modal')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   public emitClose() {}
+
+  public updateValue(options: any) {
+    this.totalValue = 0;
+
+    const isAddedProduct = this.productsAdd.some(
+      (item: any) => item.id === options.product.id
+    );
+
+    options.product.valueAdd = options.value * options.product.value;
+
+    if (!isAddedProduct) {
+      this.productsAdd.push(options.product);
+    }
+
+    this.productsAdd.forEach((element: any) => {
+      this.totalValue += element.valueAdd;
+    });
+  }
 }
 </script>
 

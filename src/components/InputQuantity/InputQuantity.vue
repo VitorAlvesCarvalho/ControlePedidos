@@ -7,7 +7,7 @@
     >
       <span class="text-decrement"> - </span>
     </button>
-    <span>{{ value }}</span>
+    <span>{{ inputValue }}</span>
     <button class="input-quantity__button" @click="incrementValue">
       <span class="text-increment"> + </span>
     </button>
@@ -15,22 +15,35 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch, Emit, Prop } from 'vue-property-decorator';
 
 @Component
 export default class Button extends Vue {
-  public value = 0;
+  @Prop({ type: Object, required: true })
+  readonly product!: any;
+
+  public inputValue = 0;
 
   public get showDecrementInput() {
-    return this.value > 0;
+    return this.inputValue > 0;
   }
 
   public decrementValue() {
-    this.value--;
+    this.inputValue--;
   }
 
   public incrementValue() {
-    this.value++;
+    this.inputValue++;
+  }
+
+  @Emit('emit-value')
+  private emitValue() {
+    return { product: this.product, value: this.inputValue };
+  }
+
+  @Watch('inputValue')
+  public updateValue() {
+    this.emitValue();
   }
 }
 </script>

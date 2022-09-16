@@ -25,17 +25,17 @@ export const MockProducts = [
     identifier: 'Lanches',
     products: [
       {
-        id: '1',
+        id: '4',
         name: 'Sanduiche',
         value: 20.0
       },
       {
-        id: '2',
+        id: '5',
         name: 'Cachorro Quente',
         value: 8.0
       },
       {
-        id: '3',
+        id: '6',
         name: 'Pastel',
         value: 7.0
       }
@@ -46,12 +46,12 @@ export const MockProducts = [
     identifier: 'Porções',
     products: [
       {
-        id: '1',
+        id: '7',
         name: 'Carne',
         value: 35.0
       },
       {
-        id: '2',
+        id: '8',
         name: 'Frango',
         value: 30.0
       }
