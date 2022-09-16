@@ -36,7 +36,8 @@
 
 <script lang="ts">
 import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
-import { Button, InputQuantity } from '@/components';
+import { Button } from '@/components';
+import { InputQuantity } from '@/modules/home/components';
 import { namespace } from 'vuex-class';
 
 const HomeModules = namespace('HomeModule');
