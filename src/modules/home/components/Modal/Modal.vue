@@ -4,6 +4,7 @@
       <component
         @close-modal="emitEventClose"
         @confirm-ordered="emitConfirmOrdered"
+        @confirm-payment="emitConfirmPayment"
         :is="typeModal"
         :table-select="tableSelect"
       />
@@ -35,6 +36,11 @@ export default class Card extends Vue {
   @Emit('confirm-ordered')
   public emitConfirmOrdered(totalValue) {
     return totalValue;
+  }
+
+  @Emit('confirm-payment')
+  public emitConfirmPayment(paymentValue) {
+    return paymentValue;
   }
 }
 </script>

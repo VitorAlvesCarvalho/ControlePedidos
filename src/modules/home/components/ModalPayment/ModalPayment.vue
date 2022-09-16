@@ -29,16 +29,15 @@
       </div>
 
       <div class="payment__values payment__grid">
-        <p>R$30,00</p>
-        <p>R$30,00</p>
-        <p>R$30,00</p>
+        <p>{{ tableSelect.valueOrdered }}</p>
+        <p>{{ tableSelect.payments }}</p>
+        <p>{{ tableSelect.totalRemaining }}</p>
       </div>
     </section>
 
     <section class="content-modal__input">
       <input
-        v-model="value"
-        v-money="formatterOptions"
+        v-model.number="valuePayment"
         class="input"
         placeholder="Valor do pagamento"
         aria-label="teste"
@@ -47,7 +46,7 @@
 
     <footer class="content-modal__actions">
       <Button @click.native="emitClose" sizeButton="md" text="Cancelar" />
-      <Button sizeButton="md" text="Confirmar" />
+      <Button @click.native="emitConfirm" sizeButton="md" text="Confirmar" />
     </footer>
   </div>
 </template>
@@ -67,11 +66,16 @@ export default class ModalPayment extends Vue {
   @Prop({ type: Object, required: true })
   readonly tableSelect!: any;
 
-  public value = '';
+  public valuePayment = '';
 
   @Emit('close-modal')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   public emitClose() {}
+
+  @Emit('confirm-payment')
+  public emitConfirm() {
+    return this.valuePayment;
+  }
 
   public get formatterOptions() {
     return {

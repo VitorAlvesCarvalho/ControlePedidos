@@ -5,7 +5,7 @@
         <p>{{ table.identifier }}</p>
       </section>
       <section class="card__value">
-        <p>{{ table.valueOrdered }}</p>
+        <p>{{ table.totalRemaining }}</p>
       </section>
     </section>
 

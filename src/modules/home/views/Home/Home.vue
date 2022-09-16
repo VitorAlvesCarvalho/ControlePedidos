@@ -15,6 +15,7 @@
       v-if="isOpenModal"
       @event-close="closeModal"
       @confirm-ordered="confirmOrdered"
+      @confirm-payment="confirmPayment"
       :type-modal="typeModal"
       :table-select="tableSelect"
     />
@@ -44,6 +45,10 @@ export default class Home extends Vue {
   // eslint-disable-next-line @typescript-eslint/ban-types
   public setValueOrdered!: Function;
 
+  @HomeModules.Action('setValuePayment')
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  public setValuePayment!: Function;
+
   public isOpenModal = false;
   public typeModal: string = TypeModal.ModalPayment;
   public tableSelect = {};
@@ -67,6 +72,12 @@ export default class Home extends Vue {
 
   public confirmOrdered(totalValue: any) {
     this.setValueOrdered({ table: this.tableSelect, totalValue });
+
+    this.closeModal();
+  }
+
+  public confirmPayment(paymentValue: number) {
+    this.setValuePayment({ table: this.tableSelect, paymentValue });
 
     this.closeModal();
   }
