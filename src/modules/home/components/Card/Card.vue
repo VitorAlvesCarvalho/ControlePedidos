@@ -32,7 +32,7 @@ export default class Card extends Vue {
 
   @Emit('emit-click')
   public emitClick(typeModal: string) {
-    return typeModal;
+    return { typeModal, itemTable: this.itemTable };
   }
 
   public get typeModal() {

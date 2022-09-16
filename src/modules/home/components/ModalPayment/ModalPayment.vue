@@ -1,7 +1,7 @@
 <template>
   <div class="content-modal">
     <header class="content-modal__title">
-      <p>Novo Pagamento - Mesa 1</p>
+      <p>Novo Pagamento - {{ tableSelect.identifier }}</p>
     </header>
 
     <section class="infos">
@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Emit, Vue } from 'vue-property-decorator';
+import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import { Button } from '@/components';
 import { VMoney } from 'v-money';
 
@@ -64,6 +64,9 @@ import { VMoney } from 'v-money';
   directives: { money: VMoney }
 })
 export default class ModalPayment extends Vue {
+  @Prop({ type: Object, required: true })
+  readonly tableSelect!: any;
+
   public value = '';
 
   @Emit('close-modal')

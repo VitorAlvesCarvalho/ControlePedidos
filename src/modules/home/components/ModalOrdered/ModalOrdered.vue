@@ -1,7 +1,7 @@
 <template>
   <div class="content-modal">
     <header class="content-modal__title">
-      <p>Novo Pedido - Mesa 1</p>
+      <p>Novo Pedido - {{ tableSelect.identifier }}</p>
     </header>
 
     <section>
@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Emit, Vue } from 'vue-property-decorator';
+import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import { Button, InputQuantity } from '@/components';
 
 @Component({
@@ -45,6 +45,9 @@ import { Button, InputQuantity } from '@/components';
   }
 })
 export default class ModalOrdered extends Vue {
+  @Prop({ type: Object, required: true })
+  readonly tableSelect!: any;
+
   @Emit('close-modal')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   public emitClose() {}

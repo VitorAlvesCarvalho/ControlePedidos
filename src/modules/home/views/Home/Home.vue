@@ -6,7 +6,7 @@
       <Card
         v-for="item in getTables"
         :key="item.id"
-        :itemTable="item"
+        :item-table="item"
         @emit-click="openModal"
       />
     </section>
@@ -14,13 +14,14 @@
     <Modal
       v-if="isOpenModal"
       @event-close="closeModal"
-      :typeModal="typeModal"
+      :type-modal="typeModal"
+      :table-select="tableSelect"
     />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import { AppBar, Card, Modal } from '@/modules/home/components';
 import { TypeModal } from '@/modules/home/types';
 import { namespace } from 'vuex-class';
@@ -40,9 +41,11 @@ export default class Home extends Vue {
 
   public isOpenModal = false;
   public typeModal: string = TypeModal.ModalPayment;
+  public tableSelect = {};
 
-  public openModal(typeModal: string) {
-    this.typeModal = typeModal;
+  public openModal(options: any) {
+    this.tableSelect = options.itemTable;
+    this.typeModal = options.typeModal;
     this.isOpenModal = true;
   }
 

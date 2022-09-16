@@ -1,7 +1,11 @@
 <template>
   <div class="modal">
     <section class="modal__container">
-      <component @close-modal="emitEventClose" :is="typeModal" />
+      <component
+        @close-modal="emitEventClose"
+        :is="typeModal"
+        :table-select="tableSelect"
+      />
     </section>
   </div>
 </template>
@@ -19,6 +23,9 @@ import { ModalOrdered, ModalPayment } from '@/modules/home/components';
 export default class Card extends Vue {
   @Prop({ type: String, required: true })
   readonly typeModal!: string;
+
+  @Prop({ type: Object, required: true })
+  readonly tableSelect!: any;
 
   @Emit('event-close')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
