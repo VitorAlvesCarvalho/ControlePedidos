@@ -3,7 +3,12 @@
     <AppBar class="animation" />
 
     <section class="home__content animation">
-      <Card v-for="item in 9" :key="item" @emit-click="openModal" />
+      <Card
+        v-for="item in getTables"
+        :key="item.id"
+        :itemTable="item"
+        @emit-click="openModal"
+      />
     </section>
 
     <Modal
@@ -15,9 +20,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import { AppBar, Card, Modal } from '@/modules/home/components';
 import { TypeModal } from '@/modules/home/types';
+import { namespace } from 'vuex-class';
+
+const HomeModules = namespace('HomeModule');
 
 @Component({
   components: {
@@ -27,12 +35,19 @@ import { TypeModal } from '@/modules/home/types';
   }
 })
 export default class Home extends Vue {
+  @HomeModules.Getter('tables')
+  readonly tables!: any;
+
   public isOpenModal = false;
   public typeModal: string = TypeModal.ModalPayment;
 
   public openModal(typeModal: string) {
     this.typeModal = typeModal;
     this.isOpenModal = true;
+  }
+
+  public get getTables() {
+    return this.tables;
   }
 
   public closeModal() {

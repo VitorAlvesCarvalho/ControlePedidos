@@ -1,0 +1,1 @@
+export { MockTables } from './tables';

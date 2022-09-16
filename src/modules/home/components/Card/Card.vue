@@ -2,10 +2,10 @@
   <div class="card">
     <section class="card__infos">
       <section class="card__identifier">
-        <p>Mesa 1</p>
+        <p>{{ table.identifier }}</p>
       </section>
       <section class="card__value">
-        <p>R$ 52,40</p>
+        <p>{{ table.valueOrdered }}</p>
       </section>
     </section>
 
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit } from 'vue-property-decorator';
+import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
 import { Button } from '@/components';
 import { TypeModal } from '@/modules/home/types';
 
@@ -27,6 +27,9 @@ import { TypeModal } from '@/modules/home/types';
   }
 })
 export default class Card extends Vue {
+  @Prop({ type: Object, required: true })
+  readonly itemTable!: any;
+
   @Emit('emit-click')
   public emitClick(typeModal: string) {
     return typeModal;
@@ -34,6 +37,10 @@ export default class Card extends Vue {
 
   public get typeModal() {
     return TypeModal;
+  }
+
+  public get table() {
+    return this.itemTable;
   }
 }
 </script>
