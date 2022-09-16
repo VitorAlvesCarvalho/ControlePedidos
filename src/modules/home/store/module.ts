@@ -1,5 +1,5 @@
 import { Module, VuexModule } from 'vuex-module-decorators';
-import { MockTables } from '@/modules/home/__mocks__';
+import { MockTables, MockProducts } from '@/modules/home/__mocks__';
 
 @Module({
   namespaced: true
@@ -7,5 +7,9 @@ import { MockTables } from '@/modules/home/__mocks__';
 export class HomeStoreModule extends VuexModule {
   public get tables() {
     return MockTables;
+  }
+
+  public get products() {
+    return MockProducts;
   }
 }

@@ -5,19 +5,15 @@
     </header>
 
     <section>
-      <div class="products">
-        <p class="products__title">Bebidas</p>
-        <div class="products__list" v-for="item in 3" :key="item">
-          <p>Cerveja Preta</p>
-          <p class="align-center">R$ 10,00</p>
-          <InputQuantity class="align-right" />
-        </div>
-      </div>
-      <div class="products">
-        <p class="products__title">Lanches</p>
-        <div class="products__list">
-          <p>Snaduiche</p>
-          <p class="align-center">R$ 20,00</p>
+      <div v-for="item in productsList" :key="item.id" class="products">
+        <p class="products__title">{{ item.identifier }}</p>
+        <div
+          class="products__list"
+          v-for="product in item.products"
+          :key="product.id"
+        >
+          <p>{{ product.name }}</p>
+          <p class="align-center">{{ product.value }}</p>
           <InputQuantity class="align-right" />
         </div>
       </div>
@@ -37,6 +33,9 @@
 <script lang="ts">
 import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import { Button, InputQuantity } from '@/components';
+import { namespace } from 'vuex-class';
+
+const HomeModules = namespace('HomeModule');
 
 @Component({
   components: {
@@ -45,6 +44,9 @@ import { Button, InputQuantity } from '@/components';
   }
 })
 export default class ModalOrdered extends Vue {
+  @HomeModules.Getter('products')
+  readonly productsList!: any;
+
   @Prop({ type: Object, required: true })
   readonly tableSelect!: any;
 
@@ -56,6 +58,8 @@ export default class ModalOrdered extends Vue {
 
 <style lang="scss" scoped>
 .content-modal {
+  max-height: 80vh;
+  overflow-y: auto;
   &__title {
     font-size: 24px;
     font-weight: bold;
