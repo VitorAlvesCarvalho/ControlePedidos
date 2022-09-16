@@ -8,16 +8,18 @@
       <div class="infos__headers infos__grid">
         <p>Pedido</p>
         <p>Qtd.</p>
-        <p>Horário</p>
         <p>Und</p>
         <p>Valor</p>
       </div>
-      <div class="infos__list infos__grid" v-for="item in 3" :key="item">
-        <p>Cerveja Preta</p>
-        <p>2</p>
-        <p>15:32</p>
-        <p>R$ 10,00</p>
-        <p>R$20,00</p>
+      <div
+        class="infos__list infos__grid"
+        v-for="item in tableSelect.ordered"
+        :key="item"
+      >
+        <p>{{ item.name }}</p>
+        <p>{{ item.valueAdd / item.value }}</p>
+        <p>{{ item.value }}</p>
+        <p>{{ item.valueAdd }}</p>
       </div>
     </section>
 
@@ -122,7 +124,7 @@ export default class ModalPayment extends Vue {
 
   &__grid {
     display: grid;
-    grid-template-columns: 3fr 1fr 2fr 2fr 2fr;
+    grid-template-columns: 3fr 2fr 2fr 2fr;
     grid-gap: 10px;
   }
 }

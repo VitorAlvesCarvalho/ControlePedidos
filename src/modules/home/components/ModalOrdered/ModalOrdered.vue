@@ -82,7 +82,7 @@ export default class ModalOrdered extends Vue {
 
   @Emit('confirm-ordered')
   public emitConfirm() {
-    return this.totalValue;
+    return { totalValue: this.totalValue, productsAdd: this.productsAdd };
   }
 }
 </script>

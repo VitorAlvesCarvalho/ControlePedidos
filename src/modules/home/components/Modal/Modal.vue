@@ -34,12 +34,12 @@ export default class Card extends Vue {
   emitEventClose() {}
 
   @Emit('confirm-ordered')
-  public emitConfirmOrdered(totalValue) {
-    return totalValue;
+  public emitConfirmOrdered(payload: any) {
+    return payload;
   }
 
   @Emit('confirm-payment')
-  public emitConfirmPayment(paymentValue) {
+  public emitConfirmPayment(paymentValue: any) {
     return paymentValue;
   }
 }

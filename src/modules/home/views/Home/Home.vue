@@ -70,8 +70,12 @@ export default class Home extends Vue {
     this.isOpenModal = false;
   }
 
-  public confirmOrdered(totalValue: any) {
-    this.setValueOrdered({ table: this.tableSelect, totalValue });
+  public confirmOrdered(payload: any) {
+    this.setValueOrdered({
+      table: this.tableSelect,
+      orderedValue: payload.totalValue,
+      productsAdd: payload.productsAdd
+    });
 
     this.closeModal();
   }

@@ -17,8 +17,9 @@ export class HomeStoreModule extends VuexModule {
   public setValueOrdered(payload: any) {
     MockTables.forEach((item) => {
       if (item.id === payload.table.id) {
-        item.valueOrdered += payload.totalValue;
+        item.valueOrdered += payload.orderedValue;
         item.totalRemaining = item.valueOrdered - item.payments;
+        item.ordered = item.ordered.concat(payload.productsAdd);
       }
     });
   }
