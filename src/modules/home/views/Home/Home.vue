@@ -2,7 +2,7 @@
   <div class="home">
     <AppBar class="animation" />
 
-    <section class="home__content animation">
+    <section v-if="!isLoading" class="home__content animation">
       <Card
         v-for="item in getTables"
         :key="item.id"
@@ -14,6 +14,7 @@
     <Modal
       v-if="isOpenModal"
       @event-close="closeModal"
+      @confirm-ordered="confirmOrdered"
       :type-modal="typeModal"
       :table-select="tableSelect"
     />
@@ -39,11 +40,17 @@ export default class Home extends Vue {
   @HomeModules.Getter('tables')
   readonly tables!: any;
 
+  @HomeModules.Action('setValueOrdered')
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  public setValueOrdered!: Function;
+
   public isOpenModal = false;
   public typeModal: string = TypeModal.ModalPayment;
   public tableSelect = {};
+  public isLoading = false;
 
   public openModal(options: any) {
+    this.isLoading = true;
     this.tableSelect = options.itemTable;
     this.typeModal = options.typeModal;
     this.isOpenModal = true;
@@ -54,7 +61,14 @@ export default class Home extends Vue {
   }
 
   public closeModal() {
+    this.isLoading = false;
     this.isOpenModal = false;
+  }
+
+  public confirmOrdered(totalValue: any) {
+    this.setValueOrdered({ table: this.tableSelect, totalValue });
+
+    this.closeModal();
   }
 }
 </script>

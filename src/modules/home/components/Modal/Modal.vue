@@ -3,6 +3,7 @@
     <section class="modal__container">
       <component
         @close-modal="emitEventClose"
+        @confirm-ordered="emitConfirmOrdered"
         :is="typeModal"
         :table-select="tableSelect"
       />
@@ -30,6 +31,11 @@ export default class Card extends Vue {
   @Emit('event-close')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   emitEventClose() {}
+
+  @Emit('confirm-ordered')
+  public emitConfirmOrdered(totalValue) {
+    return totalValue;
+  }
 }
 </script>
 

@@ -29,7 +29,7 @@
 
     <footer class="content-modal__actions">
       <Button @click.native="emitClose" sizeButton="md" text="Cancelar" />
-      <Button sizeButton="md" text="Confirmar" />
+      <Button @click.native="emitConfirm" sizeButton="md" text="Confirmar" />
     </footer>
   </div>
 </template>
@@ -78,6 +78,11 @@ export default class ModalOrdered extends Vue {
     this.productsAdd.forEach((element: any) => {
       this.totalValue += element.valueAdd;
     });
+  }
+
+  @Emit('confirm-ordered')
+  public emitConfirm() {
+    return this.totalValue;
   }
 }
 </script>
