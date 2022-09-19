@@ -5,7 +5,9 @@
         <p>{{ table.identifier }}</p>
       </section>
       <section class="card__value">
-        <p>{{ table.totalRemaining }}</p>
+        <p>
+          {{ table.totalRemaining | moneyViewFormatted }}
+        </p>
       </section>
     </section>
 
@@ -29,10 +31,14 @@
 import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
 import { Button } from '@/components';
 import { TypeModal, IItemTable } from '@/modules/home/types';
+import { moneyViewFormatted } from '@/modules/home/helpers';
 
 @Component({
   components: {
     Button
+  },
+  filters: {
+    moneyViewFormatted
   }
 })
 export default class Card extends Vue {

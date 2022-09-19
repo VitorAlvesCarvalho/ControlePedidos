@@ -18,8 +18,8 @@
       >
         <p>{{ item.name }}</p>
         <p>{{ item.valueAdd / item.value }}</p>
-        <p>{{ item.value }}</p>
-        <p>{{ item.valueAdd }}</p>
+        <p>{{ item.value | moneyViewFormatted }}</p>
+        <p>{{ item.valueAdd | moneyViewFormatted }}</p>
       </div>
     </section>
 
@@ -31,9 +31,9 @@
       </div>
 
       <div class="payment__values payment__grid">
-        <p>{{ tableSelect.valueOrdered }}</p>
-        <p>{{ tableSelect.payments }}</p>
-        <p>{{ tableSelect.totalRemaining }}</p>
+        <p>{{ tableSelect.valueOrdered | moneyViewFormatted }}</p>
+        <p>{{ tableSelect.payments | moneyViewFormatted }}</p>
+        <p>{{ tableSelect.totalRemaining | moneyViewFormatted }}</p>
       </div>
     </section>
 
@@ -71,12 +71,16 @@ import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import { Button } from '@/components';
 import { VMoney } from 'v-money';
 import { IItemTable } from '@/modules/home/types';
+import { moneyViewFormatted } from '@/modules/home/helpers';
 
 @Component({
   components: {
     Button
   },
-  directives: { money: VMoney }
+  directives: { money: VMoney },
+  filters: {
+    moneyViewFormatted
+  }
 })
 export default class ModalPayment extends Vue {
   @Prop({ type: Object, required: true })

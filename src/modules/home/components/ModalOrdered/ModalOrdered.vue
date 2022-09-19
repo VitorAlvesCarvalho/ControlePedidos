@@ -13,7 +13,7 @@
           :key="product.id"
         >
           <p>{{ product.name }}</p>
-          <p class="align-center">{{ product.value }}</p>
+          <p class="align-center">{{ product.value | moneyViewFormatted }}</p>
           <InputQuantity
             @emit-value="updateValue"
             :product="product"
@@ -24,7 +24,7 @@
     </section>
 
     <section class="content-modal__total">
-      <p>Total: {{ totalValue }}</p>
+      <p>Total: {{ totalValue | moneyViewFormatted }}</p>
     </section>
 
     <footer class="content-modal__actions">
@@ -55,6 +55,7 @@ import {
   IItemTable,
   IProductList
 } from '@/modules/home/types';
+import { moneyViewFormatted } from '@/modules/home/helpers';
 import { namespace } from 'vuex-class';
 
 const HomeModules = namespace('HomeModule');
@@ -63,6 +64,9 @@ const HomeModules = namespace('HomeModule');
   components: {
     Button,
     InputQuantity
+  },
+  filters: {
+    moneyViewFormatted
   }
 })
 export default class ModalOrdered extends Vue {

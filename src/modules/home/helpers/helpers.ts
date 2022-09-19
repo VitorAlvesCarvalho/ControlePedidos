@@ -11,3 +11,10 @@ export const dayFormatted = (day: number) => {
 
   return setDay[day as keyof typeof setDay];
 };
+
+export const moneyViewFormatted = (value: number) => {
+  return value.toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+};
