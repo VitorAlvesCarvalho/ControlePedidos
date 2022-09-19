@@ -28,8 +28,14 @@
     </section>
 
     <footer class="content-modal__actions">
-      <Button @click.native="emitClose" sizeButton="md" text="Cancelar" />
       <Button
+        aria-label="Cancelar pedido"
+        @click.native="emitClose"
+        sizeButton="md"
+        text="Cancelar"
+      />
+      <Button
+        aria-label="Confirmar pedido"
         :disabled="isDisabledButton"
         @click.native="emitConfirm"
         sizeButton="md"

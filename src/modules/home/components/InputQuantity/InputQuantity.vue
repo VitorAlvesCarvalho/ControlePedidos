@@ -2,13 +2,18 @@
   <div class="input-quantity">
     <button
       v-if="showDecrementInput"
+      aria-label="Diminuir quantidade"
       class="input-quantity__button"
       @click="decrementValue"
     >
       <span class="text-decrement"> - </span>
     </button>
     <span>{{ inputValue }}</span>
-    <button class="input-quantity__button" @click="incrementValue">
+    <button
+      aria-label="Aumentar quantidade"
+      class="input-quantity__button"
+      @click="incrementValue"
+    >
       <span class="text-increment"> + </span>
     </button>
   </div>

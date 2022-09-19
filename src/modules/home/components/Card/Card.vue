@@ -10,8 +10,13 @@
     </section>
 
     <section class="card__actions">
-      <Button @click.native="emitClick(typeModal.ModalOrdered)" text="Pedido" />
       <Button
+        aria-label="Realizar pedido"
+        @click.native="emitClick(typeModal.ModalOrdered)"
+        text="Pedido"
+      />
+      <Button
+        aria-label="Realizar pagamento"
         :disabled="isDisabledButton"
         @click.native="emitClick(typeModal.ModalPayment)"
         text="Pagar"

@@ -1,5 +1,11 @@
 <template>
-  <button :disabled="disabled" :class="['button', size]">{{ text }}</button>
+  <button
+    :disabled="disabled"
+    :aria-label="ariaLabel"
+    :class="['button', size]"
+  >
+    {{ text }}
+  </button>
 </template>
 
 <script lang="ts">
@@ -16,6 +22,9 @@ export default class Button extends Vue {
 
   @Prop({ type: Boolean, required: false, default: false })
   readonly disabled?: boolean;
+
+  @Prop({ type: String, required: false, default: 'Botão de ação' })
+  readonly ariaLabel?: string;
 
   public get size() {
     switch (this.sizeButton) {
