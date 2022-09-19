@@ -7,7 +7,7 @@ export const MockProducts: IProductList[] = [
       {
         id: '1',
         name: 'Cerveja Preta',
-        value: 10.0
+        value: 10.99
       },
       {
         id: '2',
@@ -17,7 +17,7 @@ export const MockProducts: IProductList[] = [
       {
         id: '3',
         name: 'Suco',
-        value: 7.0
+        value: 7.5
       }
     ]
   },
@@ -28,7 +28,7 @@ export const MockProducts: IProductList[] = [
       {
         id: '4',
         name: 'Sanduiche',
-        value: 20.0
+        value: 19.99
       },
       {
         id: '5',
@@ -49,12 +49,12 @@ export const MockProducts: IProductList[] = [
       {
         id: '7',
         name: 'Carne',
-        value: 35.0
+        value: 35.3
       },
       {
         id: '8',
         name: 'Frango',
-        value: 30.0
+        value: 30.2
       }
     ]
   }
