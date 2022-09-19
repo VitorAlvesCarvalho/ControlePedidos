@@ -1,4 +1,4 @@
-export const dayFormatted = (day: number) => {
+export const dayFormatted = (day: number): string => {
   const setDay = {
     0: 'Domingo',
     1: 'Segunda-feira',
@@ -12,9 +12,19 @@ export const dayFormatted = (day: number) => {
   return setDay[day as keyof typeof setDay];
 };
 
-export const moneyViewFormatted = (value: number) => {
+export const moneyViewFormatted = (value: number): string => {
   return value.toLocaleString('pt-br', {
     style: 'currency',
     currency: 'BRL'
   });
+};
+
+export const currencyToNumber = (currencyString: string): number => {
+  const parsedNumber = currencyString
+    .replace('R$', '')
+    .replace(/\./g, '')
+    .replace(',', '.')
+    .trim();
+
+  return Number(parsedNumber);
 };

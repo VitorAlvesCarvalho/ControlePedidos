@@ -39,7 +39,8 @@
 
     <section class="content-modal__input">
       <input
-        v-model.number="valuePayment"
+        v-money="formatterOptions"
+        v-model="valuePayment"
         :class="['input', { 'input-error': showMessageError }]"
         placeholder="Valor do pagamento"
       />
@@ -71,7 +72,7 @@ import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import { Button } from '@/components';
 import { VMoney } from 'v-money';
 import { IItemTable } from '@/modules/home/types';
-import { moneyViewFormatted } from '@/modules/home/helpers';
+import { moneyViewFormatted, currencyToNumber } from '@/modules/home/helpers';
 
 @Component({
   components: {
@@ -89,13 +90,19 @@ export default class ModalPayment extends Vue {
   public valuePayment = '';
 
   public get isDisabledButton() {
-    return !this.valuePayment || this.showMessageError;
+    return (
+      !this.valuePaymentToNumber ||
+      this.valuePaymentToNumber < 0 ||
+      this.showMessageError
+    );
   }
 
   public get showMessageError() {
-    return (
-      (this.valuePayment as unknown as number) > this.tableSelect.totalRemaining
-    );
+    return this.valuePaymentToNumber > this.tableSelect.totalRemaining;
+  }
+
+  public get valuePaymentToNumber() {
+    return currencyToNumber(this.valuePayment);
   }
 
   @Emit('close-modal')
@@ -103,7 +110,7 @@ export default class ModalPayment extends Vue {
 
   @Emit('confirm-payment')
   public emitConfirm() {
-    return this.valuePayment;
+    return this.valuePaymentToNumber;
   }
 
   public get formatterOptions() {
