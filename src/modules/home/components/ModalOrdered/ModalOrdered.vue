@@ -147,7 +147,7 @@ export default class ModalOrdered extends Vue {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: $spacing-3 0;
-    border-bottom: 1px solid #5c5c5c;
+    border-bottom: 1px solid $color-primary;
   }
 }
 

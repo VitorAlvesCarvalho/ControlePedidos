@@ -44,9 +44,9 @@ export default class Button extends Vue {
 <style lang="scss" scoped>
 .button {
   cursor: pointer;
-  background-color: #5c5c5c;
+  background-color: $color-primary;
   border: none;
-  color: white;
+  color: $color-white;
   border-radius: 8px;
 }
 
@@ -61,22 +61,22 @@ export default class Button extends Vue {
 
 .size-sm {
   width: 100%;
-  padding: 4px 0;
+  padding: $spacing-1 0;
   font-size: 16px;
-  margin: 0 4px;
+  margin: 0 $spacing-1;
 }
 
 .size-md {
   width: 100%;
-  padding: 4px 0;
+  padding: $spacing-1 0;
   font-size: 20px;
-  margin: 0 8px;
+  margin: 0 $spacing-2;
 }
 
 .size-lg {
   width: 100%;
-  padding: 16px 0;
+  padding: $spacing-4 0;
   font-size: 48px;
-  margin: 16px;
+  margin: $spacing-4;
 }
 </style>

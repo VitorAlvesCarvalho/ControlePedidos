@@ -57,11 +57,11 @@ export default class InputQuantity extends Vue {
 <style lang="scss" scoped>
 .input-quantity {
   &__button {
-    background-color: #fff;
+    background-color: $color-white;
     margin: $spacing-2;
     font-size: 12px;
     border-radius: 100%;
-    border: 1px solid #5c5c5c;
+    border: 1px solid $color-primary;
     cursor: pointer;
     width: 24px;
   }

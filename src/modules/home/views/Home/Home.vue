@@ -136,7 +136,7 @@ export default class Home extends Vue {
   width: 100%;
   height: 100%;
   content: '';
-  background-color: #000;
+  background-color: $color-black;
   opacity: 0.9;
 }
 

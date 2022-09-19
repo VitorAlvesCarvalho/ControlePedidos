@@ -50,7 +50,7 @@ export default class Card extends Vue {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: $color-black;
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -60,7 +60,7 @@ export default class Card extends Vue {
     position: relative;
     border-radius: 16px;
     width: 100%;
-    background-color: #fff;
+    background-color: $color-white;
     padding: $spacing-4;
   }
 

@@ -66,12 +66,12 @@ export default class Card extends Vue {
 
 <style lang="scss" scoped>
 .card {
-  background-color: #fff;
+  background-color: $color-white;
   text-align: center;
   border-radius: 12px;
   width: 200px;
-  color: #5c5c5c;
-  box-shadow: 5px 5px #5c5c5c;
+  color: $color-primary;
+  box-shadow: 5px 5px $color-primary;
 
   &__infos {
     padding: $spacing-4 $spacing-8 0;
@@ -91,7 +91,7 @@ export default class Card extends Vue {
     display: flex;
     justify-content: space-around;
     padding: $spacing-2;
-    border-top: 1px solid #5c5c5c;
+    border-top: 1px solid $color-primary;
   }
 }
 </style>

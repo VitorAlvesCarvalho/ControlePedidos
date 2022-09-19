@@ -148,7 +148,7 @@ export default class ModalPayment extends Vue {
 
 .infos {
   padding-bottom: $spacing-5;
-  border-bottom: 1px dashed #000;
+  border-bottom: 1px dashed $color-black;
 
   &__headers {
     font-size: 20px;
@@ -168,7 +168,7 @@ export default class ModalPayment extends Vue {
 
 .payment {
   padding: $spacing-5 0;
-  border-bottom: 1px dashed #000;
+  border-bottom: 1px dashed $color-black;
 
   &__headers {
     font-size: 20px;
@@ -188,19 +188,19 @@ export default class ModalPayment extends Vue {
 
 .input {
   padding: $spacing-2 16px;
-  border: 1px solid #5c5c5c;
+  border: 1px solid $color-primary;
   border-radius: 16px;
   font-size: 20px;
   outline: none;
 }
 
 .input-error {
-  border: 1px solid rgb(255, 0, 0);
+  border: 1px solid $color-error;
 }
 
 .message-error {
   margin-top: $spacing-2;
-  color: rgb(255, 0, 0);
+  color: $color-error;
   font-weight: bold;
 }
 </style>
