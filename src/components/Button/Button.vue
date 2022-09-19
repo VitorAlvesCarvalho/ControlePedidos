@@ -39,19 +39,22 @@ export default class Button extends Vue {
 }
 
 .size-sm {
-  padding: 4px 20px;
+  width: 100%;
+  padding: 4px 0;
   font-size: 16px;
   margin: 0 4px;
 }
 
 .size-md {
-  padding: 4px 48px;
+  width: 100%;
+  padding: 4px 0;
   font-size: 20px;
   margin: 0 8px;
 }
 
 .size-lg {
-  padding: 16px px;
+  width: 100%;
+  padding: 16px 0;
   font-size: 48px;
   margin: 16px;
 }

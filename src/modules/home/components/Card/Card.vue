@@ -50,7 +50,7 @@ export default class Card extends Vue {
   background-color: #fff;
   text-align: center;
   border-radius: 12px;
-  width: max-content;
+  width: 200px;
   color: #5c5c5c;
   box-shadow: 5px 5px #5c5c5c;
 
