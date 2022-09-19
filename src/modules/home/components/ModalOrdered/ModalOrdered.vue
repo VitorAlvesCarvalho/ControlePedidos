@@ -29,7 +29,12 @@
 
     <footer class="content-modal__actions">
       <Button @click.native="emitClose" sizeButton="md" text="Cancelar" />
-      <Button @click.native="emitConfirm" sizeButton="md" text="Confirmar" />
+      <Button
+        :disabled="isDisabledButton"
+        @click.native="emitConfirm"
+        sizeButton="md"
+        text="Confirmar"
+      />
     </footer>
   </div>
 </template>
@@ -57,6 +62,10 @@ export default class ModalOrdered extends Vue {
 
   @Prop({ type: Object, required: true })
   readonly tableSelect!: any;
+
+  public get isDisabledButton() {
+    return !this.totalValue;
+  }
 
   @Emit('close-modal')
   // eslint-disable-next-line @typescript-eslint/no-empty-function

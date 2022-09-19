@@ -11,7 +11,11 @@
 
     <section class="card__actions">
       <Button @click.native="emitClick(typeModal.ModalOrdered)" text="Pedido" />
-      <Button @click.native="emitClick(typeModal.ModalPayment)" text="Pagar" />
+      <Button
+        :disabled="isDisabledButton"
+        @click.native="emitClick(typeModal.ModalPayment)"
+        text="Pagar"
+      />
     </section>
   </div>
 </template>
@@ -41,6 +45,10 @@ export default class Card extends Vue {
 
   public get table() {
     return this.itemTable;
+  }
+
+  public get isDisabledButton() {
+    return !this.table.totalRemaining;
   }
 }
 </script>

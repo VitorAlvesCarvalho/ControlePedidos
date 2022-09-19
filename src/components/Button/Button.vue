@@ -1,5 +1,5 @@
 <template>
-  <button :class="['button', size]">{{ text }}</button>
+  <button :disabled="disabled" :class="['button', size]">{{ text }}</button>
 </template>
 
 <script lang="ts">
@@ -13,6 +13,9 @@ export default class Button extends Vue {
 
   @Prop({ type: String, required: false, default: 'sm' })
   readonly sizeButton?: string;
+
+  @Prop({ type: Boolean, required: false, default: false })
+  readonly disabled?: boolean;
 
   public get size() {
     switch (this.sizeButton) {
@@ -38,6 +41,15 @@ export default class Button extends Vue {
   border-radius: 8px;
 }
 
+.button:hover {
+  opacity: 0.8;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
 .size-sm {
   width: 100%;
   padding: 4px 0;
@@ -57,9 +69,5 @@ export default class Button extends Vue {
   padding: 16px 0;
   font-size: 48px;
   margin: 16px;
-}
-
-.button:hover {
-  opacity: 0.8;
 }
 </style>

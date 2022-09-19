@@ -40,15 +40,22 @@
     <section class="content-modal__input">
       <input
         v-model.number="valuePayment"
-        class="input"
+        :class="['input', { 'input-error': showMessageError }]"
         placeholder="Valor do pagamento"
-        aria-label="teste"
       />
+      <p v-if="showMessageError" class="message-error">
+        Valor do pagamento maior que conta atual!
+      </p>
     </section>
 
     <footer class="content-modal__actions">
       <Button @click.native="emitClose" sizeButton="md" text="Cancelar" />
-      <Button @click.native="emitConfirm" sizeButton="md" text="Confirmar" />
+      <Button
+        :disabled="isDisabledButton"
+        @click.native="emitConfirm"
+        sizeButton="md"
+        text="Confirmar"
+      />
     </footer>
   </div>
 </template>
@@ -69,6 +76,14 @@ export default class ModalPayment extends Vue {
   readonly tableSelect!: any;
 
   public valuePayment = '';
+
+  public get isDisabledButton() {
+    return !this.valuePayment || this.showMessageError;
+  }
+
+  public get showMessageError() {
+    return this.valuePayment > this.tableSelect.totalRemaining;
+  }
 
   @Emit('close-modal')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -158,5 +173,15 @@ export default class ModalPayment extends Vue {
   border-radius: 16px;
   font-size: 20px;
   outline: none;
+}
+
+.input-error {
+  border: 1px solid rgb(255, 0, 0);
+}
+
+.message-error {
+  margin-top: 8px;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
 }
 </style>
