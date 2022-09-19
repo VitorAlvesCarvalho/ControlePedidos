@@ -74,7 +74,7 @@ export default class Card extends Vue {
   box-shadow: 5px 5px #5c5c5c;
 
   &__infos {
-    padding: 16px 32px 0;
+    padding: $spacing-4 $spacing-8 0;
   }
 
   &__identifier {
@@ -83,14 +83,14 @@ export default class Card extends Vue {
   }
 
   &__value {
-    margin: 12px 0;
+    margin: $spacing-3 0;
     font-size: 26px;
   }
 
   &__actions {
     display: flex;
     justify-content: space-around;
-    padding: 8px;
+    padding: $spacing-2;
     border-top: 1px solid #5c5c5c;
   }
 }

@@ -113,7 +113,7 @@ export default class Home extends Vue {
     display: grid;
     grid-gap: 30px;
     grid-template-columns: repeat(1, 1fr);
-    padding-bottom: 32px;
+    padding-bottom: $spacing-8;
   }
 
   @media (min-width: 450px) {

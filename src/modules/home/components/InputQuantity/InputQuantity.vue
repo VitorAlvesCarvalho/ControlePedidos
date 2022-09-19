@@ -58,21 +58,22 @@ export default class InputQuantity extends Vue {
 .input-quantity {
   &__button {
     background-color: #fff;
-    margin: 8px;
+    margin: $spacing-2;
     font-size: 12px;
     border-radius: 100%;
     border: 1px solid #5c5c5c;
     cursor: pointer;
+    width: 24px;
   }
 }
 
 .text-increment {
   display: block;
-  padding: 4px 8px;
+  padding: $spacing-1;
 }
 
 .text-decrement {
   display: block;
-  padding: 4px 10px;
+  padding: $spacing-1;
 }
 </style>

@@ -119,13 +119,13 @@ export default class ModalOrdered extends Vue {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: $spacing-5;
   }
 
   &__total {
     font-size: 24px;
     font-weight: bold;
-    margin: 32px 0;
+    margin: $spacing-8 0;
   }
 
   &__actions {
@@ -135,7 +135,7 @@ export default class ModalOrdered extends Vue {
 }
 
 .products {
-  margin-bottom: 16px;
+  margin-bottom: $spacing-4;
 
   &__title {
     font-size: 20px;
@@ -146,7 +146,7 @@ export default class ModalOrdered extends Vue {
     align-items: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 12px 0;
+    padding: $spacing-3 0;
     border-bottom: 1px solid #5c5c5c;
   }
 }

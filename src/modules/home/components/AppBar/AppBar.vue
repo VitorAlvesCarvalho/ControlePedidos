@@ -31,7 +31,7 @@ export default class AppBar extends Vue {
 .header {
   position: relative;
   text-align: center;
-  padding: 32px 0;
+  padding: $spacing-8 0;
   color: #fff;
   width: 100%;
 
@@ -40,7 +40,7 @@ export default class AppBar extends Vue {
   }
 
   &__hours {
-    margin-top: 8px;
+    margin-top: $spacing-2;
     font-size: 16px;
   }
 }

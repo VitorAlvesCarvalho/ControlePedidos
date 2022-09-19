@@ -133,11 +133,11 @@ export default class ModalPayment extends Vue {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: $spacing-5;
   }
 
   &__input {
-    padding: 40px 0;
+    padding: $spacing-10 0;
   }
 
   &__actions {
@@ -147,7 +147,7 @@ export default class ModalPayment extends Vue {
 }
 
 .infos {
-  padding-bottom: 20px;
+  padding-bottom: $spacing-5;
   border-bottom: 1px dashed #000;
 
   &__headers {
@@ -156,7 +156,7 @@ export default class ModalPayment extends Vue {
   }
 
   &__list {
-    padding: 8px 0;
+    padding: $spacing-2 0;
   }
 
   &__grid {
@@ -167,7 +167,7 @@ export default class ModalPayment extends Vue {
 }
 
 .payment {
-  padding: 20px 0;
+  padding: $spacing-5 0;
   border-bottom: 1px dashed #000;
 
   &__headers {
@@ -176,7 +176,7 @@ export default class ModalPayment extends Vue {
   }
 
   &__values {
-    padding: 8px 0;
+    padding: $spacing-2 0;
   }
 
   &__grid {
@@ -187,7 +187,7 @@ export default class ModalPayment extends Vue {
 }
 
 .input {
-  padding: 8px 16px;
+  padding: $spacing-2 16px;
   border: 1px solid #5c5c5c;
   border-radius: 16px;
   font-size: 20px;
@@ -199,7 +199,7 @@ export default class ModalPayment extends Vue {
 }
 
 .message-error {
-  margin-top: 8px;
+  margin-top: $spacing-2;
   color: rgb(255, 0, 0);
   font-weight: bold;
 }
