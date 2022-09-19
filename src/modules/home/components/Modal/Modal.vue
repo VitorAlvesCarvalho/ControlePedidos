@@ -59,9 +59,16 @@ export default class Card extends Vue {
   &__container {
     position: relative;
     border-radius: 16px;
-    width: 40%;
+    width: 100%;
     background-color: #fff;
-    padding: 32px;
+    padding: 16px;
+  }
+
+  @media (min-width: 700px) {
+    &__container {
+      width: 40%;
+      padding: 32px;
+    }
   }
 }
 </style>

@@ -89,7 +89,7 @@ export default class ModalOrdered extends Vue {
 
 <style lang="scss" scoped>
 .content-modal {
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-y: auto;
   &__title {
     font-size: 24px;
