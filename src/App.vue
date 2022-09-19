@@ -12,8 +12,6 @@ export default class App extends Vue {}
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 * {
   padding: 0;
   margin: 0;
