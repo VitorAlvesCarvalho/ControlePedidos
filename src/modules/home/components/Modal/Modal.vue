@@ -64,7 +64,7 @@ export default class Card extends Vue {
     padding: $spacing-4;
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: $desktop) {
     &__container {
       width: 40%;
       padding: $spacing-8;
