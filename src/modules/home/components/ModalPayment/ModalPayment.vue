@@ -98,7 +98,10 @@ export default class ModalPayment extends Vue {
   }
 
   public get showMessageError() {
-    return this.valuePaymentToNumber > this.tableSelect.totalRemaining;
+    return (
+      this.valuePaymentToNumber >
+      Number(this.tableSelect.totalRemaining.toFixed(2))
+    );
   }
 
   public get valuePaymentToNumber() {
