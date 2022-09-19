@@ -80,7 +80,6 @@ export default class ModalOrdered extends Vue {
   }
 
   @Emit('close-modal')
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public emitClose() {}
 
   public updateValue(options: IChangeProductQuantity) {

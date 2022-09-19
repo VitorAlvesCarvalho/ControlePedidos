@@ -48,11 +48,9 @@ export default class Home extends Vue {
   readonly tables!: IItemTable[];
 
   @HomeModules.Action('setValueOrdered')
-  // eslint-disable-next-line @typescript-eslint/ban-types
   public setValueOrdered!: Function;
 
   @HomeModules.Action('setValuePayment')
-  // eslint-disable-next-line @typescript-eslint/ban-types
   public setValuePayment!: Function;
 
   public isOpenModal = false;

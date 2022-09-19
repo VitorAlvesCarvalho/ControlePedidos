@@ -31,7 +31,6 @@ export default class Card extends Vue {
   readonly tableSelect!: IItemTable;
 
   @Emit('event-close')
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   emitEventClose() {}
 
   @Emit('confirm-ordered')
