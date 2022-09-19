@@ -49,6 +49,12 @@
 import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import { Button } from '@/components';
 import { InputQuantity } from '@/modules/home/components';
+import {
+  IProduct,
+  IChangeProductQuantity,
+  IItemTable,
+  IProductList
+} from '@/modules/home/types';
 import { namespace } from 'vuex-class';
 
 const HomeModules = namespace('HomeModule');
@@ -61,13 +67,13 @@ const HomeModules = namespace('HomeModule');
 })
 export default class ModalOrdered extends Vue {
   @HomeModules.Getter('products')
-  readonly productsList!: any;
+  readonly productsList!: IProductList[];
 
   public totalValue = 0;
-  private productsAdd: any = [];
+  private productsAdd: IProduct[] = [];
 
   @Prop({ type: Object, required: true })
-  readonly tableSelect!: any;
+  readonly tableSelect!: IItemTable;
 
   public get isDisabledButton() {
     return !this.totalValue;
@@ -77,11 +83,11 @@ export default class ModalOrdered extends Vue {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   public emitClose() {}
 
-  public updateValue(options: any) {
+  public updateValue(options: IChangeProductQuantity) {
     this.totalValue = 0;
 
     const isAddedProduct = this.productsAdd.some(
-      (item: any) => item.id === options.product.id
+      (item) => item.id === options.product.id
     );
 
     options.product.valueAdd = options.value * options.product.value;
@@ -90,8 +96,8 @@ export default class ModalOrdered extends Vue {
       this.productsAdd.push(options.product);
     }
 
-    this.productsAdd.forEach((element: any) => {
-      this.totalValue += element.valueAdd;
+    this.productsAdd.forEach((element) => {
+      this.totalValue += element.valueAdd || 0;
     });
   }
 

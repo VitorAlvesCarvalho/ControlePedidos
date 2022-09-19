@@ -25,7 +25,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { AppBar, Card, Modal } from '@/modules/home/components';
-import { TypeModal } from '@/modules/home/types';
+import {
+  TypeModal,
+  IItemTable,
+  IPayloadModal,
+  IConfirmOrdered,
+  IConfirmPayment
+} from '@/modules/home/types';
 import { namespace } from 'vuex-class';
 
 const HomeModules = namespace('HomeModule');
@@ -39,7 +45,7 @@ const HomeModules = namespace('HomeModule');
 })
 export default class Home extends Vue {
   @HomeModules.Getter('tables')
-  readonly tables!: any;
+  readonly tables!: IItemTable[];
 
   @HomeModules.Action('setValueOrdered')
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -54,7 +60,7 @@ export default class Home extends Vue {
   public tableSelect = {};
   public isLoading = false;
 
-  public openModal(options: any) {
+  public openModal(options: IPayloadModal) {
     this.isLoading = true;
     this.tableSelect = options.itemTable;
     this.typeModal = options.typeModal;
@@ -70,18 +76,21 @@ export default class Home extends Vue {
     this.isOpenModal = false;
   }
 
-  public confirmOrdered(payload: any) {
+  public confirmOrdered(payload: IConfirmOrdered) {
     this.setValueOrdered({
       table: this.tableSelect,
-      orderedValue: payload.totalValue,
+      totalValue: payload.totalValue,
       productsAdd: payload.productsAdd
-    });
+    } as IConfirmOrdered);
 
     this.closeModal();
   }
 
   public confirmPayment(paymentValue: number) {
-    this.setValuePayment({ table: this.tableSelect, paymentValue });
+    this.setValuePayment({
+      table: this.tableSelect,
+      paymentValue
+    } as IConfirmPayment);
 
     this.closeModal();
   }

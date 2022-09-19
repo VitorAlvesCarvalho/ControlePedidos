@@ -14,7 +14,7 @@
       <div
         class="infos__list infos__grid"
         v-for="item in tableSelect.ordered"
-        :key="item"
+        :key="item.id"
       >
         <p>{{ item.name }}</p>
         <p>{{ item.valueAdd / item.value }}</p>
@@ -70,6 +70,7 @@
 import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import { Button } from '@/components';
 import { VMoney } from 'v-money';
+import { IItemTable } from '@/modules/home/types';
 
 @Component({
   components: {
@@ -79,7 +80,7 @@ import { VMoney } from 'v-money';
 })
 export default class ModalPayment extends Vue {
   @Prop({ type: Object, required: true })
-  readonly tableSelect!: any;
+  readonly tableSelect!: IItemTable;
 
   public valuePayment = '';
 
@@ -88,7 +89,9 @@ export default class ModalPayment extends Vue {
   }
 
   public get showMessageError() {
-    return this.valuePayment > this.tableSelect.totalRemaining;
+    return (
+      (this.valuePayment as unknown as number) > this.tableSelect.totalRemaining
+    );
   }
 
   @Emit('close-modal')

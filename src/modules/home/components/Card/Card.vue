@@ -28,7 +28,7 @@
 <script lang="ts">
 import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
 import { Button } from '@/components';
-import { TypeModal } from '@/modules/home/types';
+import { TypeModal, IItemTable } from '@/modules/home/types';
 
 @Component({
   components: {
@@ -37,7 +37,7 @@ import { TypeModal } from '@/modules/home/types';
 })
 export default class Card extends Vue {
   @Prop({ type: Object, required: true })
-  readonly itemTable!: any;
+  readonly itemTable!: IItemTable;
 
   @Emit('emit-click')
   public emitClick(typeModal: string) {
@@ -48,7 +48,7 @@ export default class Card extends Vue {
     return TypeModal;
   }
 
-  public get table() {
+  public get table(): IItemTable {
     return this.itemTable;
   }
 

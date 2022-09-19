@@ -1,4 +1,6 @@
-export const MockTables = [
+import { IItemTable } from '@/modules/home/types';
+
+export const MockTables: IItemTable[] = [
   {
     id: '1',
     identifier: 'Mesa 1',
@@ -64,7 +66,7 @@ export const MockTables = [
     ordered: []
   },
   {
-    id: 9,
+    id: '9',
     identifier: 'Mesa 9',
     valueOrdered: 0.0,
     payments: 0.0,

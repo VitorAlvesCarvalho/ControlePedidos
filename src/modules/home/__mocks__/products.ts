@@ -1,4 +1,5 @@
-export const MockProducts = [
+import { IProductList } from './../types/types';
+export const MockProducts: IProductList[] = [
   {
     id: '1',
     identifier: 'Bebidas',

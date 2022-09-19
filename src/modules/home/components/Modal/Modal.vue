@@ -15,6 +15,7 @@
 <script lang="ts">
 import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
 import { ModalOrdered, ModalPayment } from '@/modules/home/components';
+import { IItemTable, IConfirmOrdered } from '@/modules/home/types';
 
 @Component({
   components: {
@@ -27,19 +28,19 @@ export default class Card extends Vue {
   readonly typeModal!: string;
 
   @Prop({ type: Object, required: true })
-  readonly tableSelect!: any;
+  readonly tableSelect!: IItemTable;
 
   @Emit('event-close')
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   emitEventClose() {}
 
   @Emit('confirm-ordered')
-  public emitConfirmOrdered(payload: any) {
+  public emitConfirmOrdered(payload: IConfirmOrdered) {
     return payload;
   }
 
   @Emit('confirm-payment')
-  public emitConfirmPayment(paymentValue: any) {
+  public emitConfirmPayment(paymentValue: number) {
     return paymentValue;
   }
 }

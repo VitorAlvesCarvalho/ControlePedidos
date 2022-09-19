@@ -21,11 +21,12 @@
 
 <script lang="ts">
 import { Component, Vue, Watch, Emit, Prop } from 'vue-property-decorator';
+import { IProduct } from '@/modules/home/types';
 
 @Component
 export default class InputQuantity extends Vue {
   @Prop({ type: Object, required: true })
-  readonly product!: any;
+  readonly product!: IProduct;
 
   public inputValue = 0;
 
