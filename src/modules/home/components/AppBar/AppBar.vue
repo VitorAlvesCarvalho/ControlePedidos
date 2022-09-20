@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <section class="header__day">
-      <p>{{ currentDay }}</p>
+      <p data-testid="current-day">{{ currentDay }}</p>
     </section>
   </header>
 </template>
