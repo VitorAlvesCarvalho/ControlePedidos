@@ -4,15 +4,15 @@ import { MockProducts } from '@/modules/home/__mocks__';
 
 const mockProduct = MockProducts[0].products[0];
 
-const renderCard = () => {
+const renderInputQuantity = () => {
   return render(InputQuantity, {
     propsData: { product: mockProduct }
   });
 };
 
-describe('Card', () => {
+describe('InputQuantity', () => {
   it('should emit correct event on increment button click', async () => {
-    const { getByTestId, emitted } = renderCard();
+    const { getByTestId, emitted } = renderInputQuantity();
 
     const incrementButton = getByTestId('increment-button');
     await fireEvent.click(incrementButton);
@@ -21,7 +21,7 @@ describe('Card', () => {
   });
 
   it('should emit correct event on decrement button click', async () => {
-    const { getByTestId, emitted } = renderCard();
+    const { getByTestId, emitted } = renderInputQuantity();
 
     const incrementButton = getByTestId('increment-button');
     await fireEvent.click(incrementButton);
