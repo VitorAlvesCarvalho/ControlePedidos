@@ -31,14 +31,14 @@
       <Button
         aria-label="Cancelar pedido"
         @click.native="emitClose"
-        sizeButton="md"
+        size-button="md"
         text="Cancelar"
       />
       <Button
         aria-label="Confirmar pedido"
         :disabled="isDisabledButton"
         @click.native="emitConfirm"
-        sizeButton="md"
+        size-button="md"
         text="Confirmar"
       />
     </footer>
