@@ -3,9 +3,6 @@
     <section class="header__day">
       <p>{{ currentDay }}</p>
     </section>
-    <section class="header__hours">
-      <p>{{ currentTime }}</p>
-    </section>
   </header>
 </template>
 
@@ -20,10 +17,6 @@ export default class AppBar extends Vue {
   public get currentDay() {
     return dayFormatted(this.date.getUTCDay());
   }
-
-  public get currentTime() {
-    return this.date.toLocaleTimeString();
-  }
 }
 </script>
 
@@ -37,11 +30,6 @@ export default class AppBar extends Vue {
 
   &__day {
     font-size: 24px;
-  }
-
-  &__hours {
-    margin-top: $spacing-2;
-    font-size: 16px;
   }
 }
 </style>
