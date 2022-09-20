@@ -4,6 +4,7 @@
       v-if="showDecrementInput"
       aria-label="Diminuir quantidade"
       class="input-quantity__button"
+      data-testid="decrement-button"
       @click="decrementValue"
     >
       <span class="text-decrement"> - </span>
@@ -12,6 +13,7 @@
     <button
       aria-label="Aumentar quantidade"
       class="input-quantity__button"
+      data-testid="increment-button"
       @click="incrementValue"
     >
       <span class="text-increment"> + </span>
