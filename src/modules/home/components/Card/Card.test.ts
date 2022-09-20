@@ -2,11 +2,11 @@ import { Card } from '@/modules/home/components';
 import { render, fireEvent } from '@testing-library/vue';
 import { MockTables } from '@/modules/home/__mocks__';
 
-const itemTable = MockTables[0];
+const mockItemTable = MockTables[0];
 
 const renderCard = () => {
   return render(Card, {
-    propsData: { itemTable }
+    propsData: { itemTable: mockItemTable }
   });
 };
 
@@ -21,7 +21,7 @@ describe('Card', () => {
   it('should emit correct event on ordered button click', async () => {
     const { getByTestId, emitted } = renderCard();
 
-    const orderedButton = getByTestId('button-ordered');
+    const orderedButton = getByTestId('ordered-button');
     await fireEvent.click(orderedButton);
 
     expect(emitted()['emit-click']).toBeTruthy();
@@ -30,7 +30,7 @@ describe('Card', () => {
   it('should emit correct event on payment button click', async () => {
     const { getByTestId, emitted } = renderCard();
 
-    const paymentButton = getByTestId('button-payment');
+    const paymentButton = getByTestId('payment-button');
     await fireEvent.click(paymentButton);
 
     expect(emitted()['emit-click']).toBeTruthy();
