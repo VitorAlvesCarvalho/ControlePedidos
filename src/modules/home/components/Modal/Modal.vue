@@ -1,6 +1,6 @@
 <template>
   <div class="modal">
-    <section class="modal__container">
+    <section class="modal__container animation-modal">
       <component
         @close-modal="emitEventClose"
         @confirm-ordered="emitConfirmOrdered"
@@ -50,11 +50,11 @@ export default class Card extends Vue {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: $color-black;
   bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $background-modal;
 
   &__container {
     position: relative;
@@ -70,5 +70,18 @@ export default class Card extends Vue {
       padding: $spacing-8;
     }
   }
+}
+
+@keyframes blowUpModal {
+  0% {
+    transform: scale(0.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animation-modal {
+  animation: blowUpModal 1s ease forwards;
 }
 </style>

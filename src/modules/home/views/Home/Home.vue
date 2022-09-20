@@ -150,6 +150,6 @@ export default class Home extends Vue {
 }
 
 .animation {
-  animation: fadeIn 3s ease-in-out;
+  animation: fadeIn 1.5s ease-in-out;
 }
 </style>
