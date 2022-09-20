@@ -29,7 +29,7 @@ export default class AppBar extends Vue {
   width: 100%;
 
   &__day {
-    font-size: 24px;
+    font-size: 32px;
   }
 }
 </style>
