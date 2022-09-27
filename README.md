@@ -1,4 +1,4 @@
-# Teste Convenia
+# Sistema de restaurante
 
 ## Versão utilizada
 
