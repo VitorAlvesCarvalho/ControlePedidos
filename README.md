@@ -1,5 +1,9 @@
 # Sistema de restaurante
 
+Aplicação que simula um sistema de restaurante, com adição de pedidos e pagamentos.
+
+https://user-images.githubusercontent.com/113551661/193379775-a459d90c-fc10-44c7-b675-f6e3c9bef9da.mp4
+
 ## Versão utilizada
 
 - Node: 16.17.0
