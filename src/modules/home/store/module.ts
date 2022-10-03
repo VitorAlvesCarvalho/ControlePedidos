@@ -34,9 +34,7 @@ export class HomeStoreModule extends VuexModule {
 
   @Action
   public tableSelect(id: string): IItemTable | undefined {
-    return MockTables.find((item) => {
-      return item.id === id;
-    });
+    return MockTables.find((item) => item.id === id);
   }
 
   @Action
