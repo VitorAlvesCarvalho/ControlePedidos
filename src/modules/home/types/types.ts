@@ -39,7 +39,7 @@ export interface IChangeProductQuantity {
 export interface IConfirmOrdered {
   productsAdd: IProduct[];
   totalValue: number;
-  table?: IItemTable;
+  table: IItemTable;
 }
 
 export interface IConfirmPayment {

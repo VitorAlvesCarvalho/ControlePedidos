@@ -47,11 +47,11 @@ export default class Home extends Vue {
   @HomeModules.Getter('tables')
   readonly tables!: IItemTable[];
 
-  @HomeModules.Action('setValueOrdered')
-  public setValueOrdered!: Function;
+  @HomeModules.Action('setOrdered')
+  public setOrdered!: Function;
 
-  @HomeModules.Action('setValuePayment')
-  public setValuePayment!: Function;
+  @HomeModules.Action('setPayment')
+  public setPayment!: Function;
 
   public isOpenModal = false;
   public typeModal: string = TypeModal.ModalPayment;
@@ -68,7 +68,7 @@ export default class Home extends Vue {
   }
 
   public confirmOrdered(payload: IConfirmOrdered) {
-    this.setValueOrdered({
+    this.setOrdered({
       table: this.tableSelect,
       totalValue: payload.totalValue,
       productsAdd: payload.productsAdd
@@ -78,7 +78,7 @@ export default class Home extends Vue {
   }
 
   public confirmPayment(paymentValue: number) {
-    this.setValuePayment({
+    this.setPayment({
       table: this.tableSelect,
       paymentValue
     } as IConfirmPayment);
