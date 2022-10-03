@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
-import { Button } from '@/components';
+import { Button } from '@/modules/home/components';
 import { TypeModal, IItemTable } from '@/modules/home/types';
 import { moneyViewFormatted } from '@/modules/home/helpers';
 

@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
-import { Button } from '@/components';
+import { Button } from '@/modules/home/components';
 import { InputQuantity } from '@/modules/home/components';
 import {
   IProduct,

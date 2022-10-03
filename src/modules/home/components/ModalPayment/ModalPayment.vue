@@ -69,7 +69,7 @@
 
 <script lang="ts">
 import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
-import { Button } from '@/components';
+import { Button } from '@/modules/home/components';
 import { VMoney } from 'v-money';
 import { IItemTable } from '@/modules/home/types';
 import { moneyViewFormatted, currencyToNumber } from '@/modules/home/helpers';

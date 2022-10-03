@@ -1,4 +1,5 @@
 export { default as AppBar } from './AppBar/AppBar.vue';
+export { default as Button } from './Button/Button.vue';
 export { default as Card } from './Card/Card.vue';
 export { default as InputQuantity } from './InputQuantity/InputQuantity.vue';
 export { default as ModalPayment } from './ModalPayment/ModalPayment.vue';

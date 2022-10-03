@@ -1,4 +1,4 @@
-import { Button } from '@/components';
+import { Button } from '@/modules/home/components';
 import { render } from '@testing-library/vue';
 import '@testing-library/jest-dom';
 
