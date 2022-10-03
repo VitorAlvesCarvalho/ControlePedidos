@@ -13,7 +13,7 @@
 
     <Modal
       v-if="isOpenModal"
-      @event-close="closeModal"
+      @close-modal="closeModal"
       @confirm-ordered="confirmOrdered"
       @confirm-payment="confirmPayment"
       :type-modal="typeModal"

@@ -1,21 +1,14 @@
 <template>
   <div class="modal">
     <section class="modal__container animation-modal">
-      <component
-        @close-modal="emitEventClose"
-        @confirm-ordered="emitConfirmOrdered"
-        @confirm-payment="emitConfirmPayment"
-        :is="typeModal"
-        :table-select="tableSelect"
-      />
+      <component :is="typeModal" v-on="$listeners" v-bind="$attrs" />
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import { ModalOrdered, ModalPayment } from '@/modules/home/components';
-import { IItemTable, IConfirmOrdered } from '@/modules/home/types';
 
 @Component({
   components: {
@@ -26,22 +19,6 @@ import { IItemTable, IConfirmOrdered } from '@/modules/home/types';
 export default class Card extends Vue {
   @Prop({ type: String, required: true })
   readonly typeModal!: string;
-
-  @Prop({ type: Object, required: true })
-  readonly tableSelect!: IItemTable;
-
-  @Emit('event-close')
-  emitEventClose() {}
-
-  @Emit('confirm-ordered')
-  public emitConfirmOrdered(payload: IConfirmOrdered) {
-    return payload;
-  }
-
-  @Emit('confirm-payment')
-  public emitConfirmPayment(paymentValue: number) {
-    return paymentValue;
-  }
 }
 </script>
 
