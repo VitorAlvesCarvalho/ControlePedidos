@@ -2,11 +2,11 @@
   <div class="card">
     <section class="card__infos">
       <section class="card__identifier">
-        <p>{{ table.identifier }}</p>
+        <p>{{ itemTable.identifier }}</p>
       </section>
       <section class="card__value">
         <p>
-          {{ table.totalRemaining | moneyViewFormatted }}
+          {{ itemTable.totalRemaining | moneyViewFormatted }}
         </p>
       </section>
     </section>
@@ -56,12 +56,8 @@ export default class Card extends Vue {
     return TypeModal;
   }
 
-  public get table(): IItemTable {
-    return this.itemTable;
-  }
-
   public get isDisabledButton() {
-    return !this.table.totalRemaining;
+    return !this.itemTable.totalRemaining;
   }
 }
 </script>

@@ -2,9 +2,9 @@
   <div class="home">
     <AppBar class="animation" />
 
-    <section v-if="!isLoading" class="home__content animation">
+    <section v-if="!isOpenModal" class="home__content animation">
       <Card
-        v-for="item in getTables"
+        v-for="item in tables"
         :key="item.id"
         :item-table="item"
         @emit-click="openModal"
@@ -56,21 +56,14 @@ export default class Home extends Vue {
   public isOpenModal = false;
   public typeModal: string = TypeModal.ModalPayment;
   public tableSelect = {};
-  public isLoading = false;
 
   public openModal(options: IPayloadModal) {
-    this.isLoading = true;
     this.tableSelect = options.itemTable;
     this.typeModal = options.typeModal;
     this.isOpenModal = true;
   }
 
-  public get getTables() {
-    return this.tables;
-  }
-
   public closeModal() {
-    this.isLoading = false;
     this.isOpenModal = false;
   }
 
