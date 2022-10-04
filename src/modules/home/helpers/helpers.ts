@@ -13,7 +13,7 @@ export const dayFormatted = (day: number): string => {
 };
 
 export const moneyViewFormatted = (value: number): string => {
-  return value.toLocaleString('pt-br', {
+  return Math.abs(value).toLocaleString('pt-br', {
     style: 'currency',
     currency: 'BRL'
   });

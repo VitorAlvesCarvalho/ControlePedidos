@@ -28,8 +28,11 @@ export class HomeStoreModule extends VuexModule {
 
   @Mutation
   public setValuePayment({ table, payload }) {
-    table.payments += payload.paymentValue;
-    table.totalRemaining = table.valueOrdered - table.payments;
+    table.payments += Number(payload.paymentValue);
+
+    table.totalRemaining = Number(
+      (table.valueOrdered - table.payments).toFixed(2)
+    );
   }
 
   @Action
