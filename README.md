@@ -42,6 +42,7 @@ yarn test:unit 'nome-arquivo'
 - TypeScript
 - Vue
 - VueX
+- Vue Router
 - Jest
 - Vue Testing Library
 
