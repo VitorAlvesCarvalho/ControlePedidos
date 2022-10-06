@@ -1,4 +1,4 @@
-# Sistema de restaurante
+# Controle de pedidos
 
 Aplicação que simula um sistema de restaurante, com adição de pedidos e pagamentos.
 
