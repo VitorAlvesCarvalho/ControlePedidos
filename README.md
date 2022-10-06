@@ -12,7 +12,7 @@ https://user-images.githubusercontent.com/113551661/193379775-a459d90c-fc10-44c7
 
 ####  Clone do projeto 
 ```
-git clone https://github.com/VitorAlvesCarvalho/Teste-Convenia.git
+git clone https://github.com/VitorAlvesCarvalho/controle-pedidos.git
 ```
 
 #### Instalar dependencias - *Rodar comando na pasta raiz do projeto 
